@@ -6,23 +6,9 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'Ejercicios Angular Signals - Sesión 1';
-  ejercicioActual = 1;
-  totalEjercicios = 3;
+  sesionActual: 1 | 2 = 1;
 
-  siguiente() {
-    if (this.ejercicioActual < this.totalEjercicios) {
-      this.ejercicioActual++;
-    }
-  }
-
-  anterior() {
-    if (this.ejercicioActual > 1) {
-      this.ejercicioActual--;
-    }
-  }
-
-  irAEjercicio(numero: number) {
-    this.ejercicioActual = numero;
+  cambiarSesion(sesion: 1 | 2) {
+    this.sesionActual = sesion;
   }
 }

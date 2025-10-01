@@ -1,33 +1,182 @@
 <div style="max-width: 1400px; margin: 0 auto; padding: 20px;">
-  <h1>{{ title }}</h1>
+  <h1>Curso Angular 20 Avanzado - Ejercicios Prácticos</h1>
 
-  <p>💡 Compara las versiones Clásica vs Moderna</p>
-  <p>🔍 Abre la consola del navegador para ver los logs</p>
+  <!-- Selector de Sesión -->
+  <div style="text-align: center; margin: 20px 0;">
+    <button
+      (click)="cambiarSesion(1)"
+      [style.background]="sesionActual === 1 ? '#4CAF50' : '#ccc'"
+      [style.color]="sesionActual === 1 ? 'white' : '#333'"
+      style="padding: 12px 30px; margin: 0 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold;">
+      Sesión 1: Signals Básicos
+    </button>
+    <button
+      (click)="cambiarSesion(2)"
+      [style.background]="sesionActual === 2 ? '#4CAF50' : '#ccc'"
+      [style.color]="sesionActual === 2 ? 'white' : '#333'"
+      style="padding: 12px 30px; margin: 0 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold;">
+      Sesión 2: Change Detection y Control Flow
+    </button>
+  </div>
+
+  <p style="text-align: center;">💡 Compara las versiones Clásica vs Moderna</p>
+  <p style="text-align: center;">🔍 Abre la consola del navegador para ver los logs</p>
 
   <hr>
 
-  <!-- EJERCICIO 1: Signals Básicos -->
-  <h2 style="text-align: center; margin-bottom: 20px;">
-    📚 Ejercicio 1: Signals Básicos
-  </h2>
+  <!-- ========== SESIÓN 1 ========== -->
+  <div *ngIf="sesionActual === 1">
+    <!-- EJERCICIO 1: Signals Básicos -->
+    <h2 style="text-align: center; margin-bottom: 20px;">
+      📚 Ejercicio 1: Signals Básicos
+    </h2>
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
-    <div>
-      <h3 style="background: #333; color: white; padding: 10px; text-align: center; margin: 0;">
-        Versión Clásica (Zone.js)
-      </h3>
-      <div style="border: 2px solid #ccc; padding: 15px;">
-        <app-ejercicio-1-clasico></app-ejercicio-1-clasico>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+      <div>
+        <h3 style="background: #333; color: white; padding: 10px; text-align: center; margin: 0;">
+          Versión Clásica (Zone.js)
+        </h3>
+        <div style="border: 2px solid #ccc; padding: 15px;">
+          <app-ejercicio-1-clasico></app-ejercicio-1-clasico>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="background: #4CAF50; color: white; padding: 10px; text-align: center; margin: 0;">
+          Versión Moderna (Signals)
+        </h3>
+        <div style="border: 2px solid #4CAF50; padding: 15px;">
+          <app-ejercicio-1-moderno></app-ejercicio-1-moderno>
+        </div>
       </div>
     </div>
 
-    <div>
-      <h3 style="background: #4CAF50; color: white; padding: 10px; text-align: center; margin: 0;">
-        Versión Moderna (Signals)
-      </h3>
-      <div style="border: 2px solid #4CAF50; padding: 15px;">
-        <app-ejercicio-1-moderno></app-ejercicio-1-moderno>
+    <hr style="margin: 40px 0;">
+
+    <!-- EJERCICIO 2: Computed -->
+    <h2 style="text-align: center; margin-bottom: 20px;">
+      🧮 Ejercicio 2: Computed Signals
+    </h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+      <div>
+        <h3 style="background: #333; color: white; padding: 10px; text-align: center; margin: 0;">
+          Versión Clásica (Getters)
+        </h3>
+        <div style="border: 2px solid #ccc; padding: 15px;">
+          <app-ejercicio-2-clasico></app-ejercicio-2-clasico>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="background: #4CAF50; color: white; padding: 10px; text-align: center; margin: 0;">
+          Versión Moderna (Computed)
+        </h3>
+        <div style="border: 2px solid #4CAF50; padding: 15px;">
+          <app-ejercicio-2-moderno></app-ejercicio-2-moderno>
+        </div>
       </div>
     </div>
+
+    <hr style="margin: 40px 0;">
+
+    <!-- EJERCICIO 3: Effects -->
+    <h2 style="text-align: center; margin-bottom: 20px;">
+      ⚡ Ejercicio 3: Effects
+    </h2>
+
+    <div style="max-width: 700px; margin: 0 auto;">
+      <div>
+        <h3 style="background: #4CAF50; color: white; padding: 10px; text-align: center; margin: 0;">
+          Solo Moderno (Effects)
+        </h3>
+        <div style="border: 2px solid #4CAF50; padding: 15px;">
+          <app-ejercicio-3-moderno></app-ejercicio-3-moderno>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SESIÓN 2 ========== -->
+  <div *ngIf="sesionActual === 2">
+    <!-- EJERCICIO 1: Change Detection -->
+    <h2 style="text-align: center; margin-bottom: 20px;">
+      🔄 Ejercicio 1: Change Detection Avanzado
+    </h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+      <div>
+        <h3 style="background: #333; color: white; padding: 10px; text-align: center; margin: 0;">
+          Versión Clásica (Default)
+        </h3>
+        <div style="border: 2px solid #ccc; padding: 15px;">
+          <app-ejercicio-1-cd-clasico></app-ejercicio-1-cd-clasico>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="background: #4CAF50; color: white; padding: 10px; text-align: center; margin: 0;">
+          Versión Moderna (OnPush + Signals)
+        </h3>
+        <div style="border: 2px solid #4CAF50; padding: 15px;">
+          <app-ejercicio-1-cd-moderno></app-ejercicio-1-cd-moderno>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejercicios 2 y 3 comentados temporalmente -->
+    <!--
+    <hr style="margin: 40px 0;">
+
+    <h2 style="text-align: center; margin-bottom: 20px;">
+      🎛️ Ejercicio 2: Control Flow Moderno
+    </h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+      <div>
+        <h3 style="background: #333; color: white; padding: 10px; text-align: center; margin: 0;">
+          Versión Clásica (*ngIf, *ngFor, *ngSwitch)
+        </h3>
+        <div style="border: 2px solid #ccc; padding: 15px;">
+          <app-ejercicio-2-cf-clasico></app-ejercicio-2-cf-clasico>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="background: #4CAF50; color: white; padding: 10px; text-align: center; margin: 0;">
+          Versión Moderna (&#64;if, &#64;for, &#64;switch)
+        </h3>
+        <div style="border: 2px solid #4CAF50; padding: 15px;">
+          <app-ejercicio-2-cf-moderno></app-ejercicio-2-cf-moderno>
+        </div>
+      </div>
+    </div>
+
+    <hr style="margin: 40px 0;">
+
+    <h2 style="text-align: center; margin-bottom: 20px;">
+      🎨 Ejercicio 3: Directivas Reactivas
+    </h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+      <div>
+        <h3 style="background: #333; color: white; padding: 10px; text-align: center; margin: 0;">
+          Versión Clásica (@Input)
+        </h3>
+        <div style="border: 2px solid #ccc; padding: 15px;">
+          <app-ejercicio-3-dir-clasico></app-ejercicio-3-dir-clasico>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="background: #4CAF50; color: white; padding: 10px; text-align: center; margin: 0;">
+          Versión Moderna (signal inputs)
+        </h3>
+        <div style="border: 2px solid #4CAF50; padding: 15px;">
+          <app-ejercicio-3-dir-moderno></app-ejercicio-3-dir-moderno>
+        </div>
+      </div>
+    </div>
+    -->
   </div>
 </div>
