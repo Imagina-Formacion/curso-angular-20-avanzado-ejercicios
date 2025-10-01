@@ -61,7 +61,9 @@ export class Ejercicio1CdModernoComponent {
   // 💡 COMPUTED: Solo se recalcula cuando cambia products()
   totalPrice = computed(() => {
     console.log('🟢 Moderno: totalPrice() computed ejecutado');
-    return this.products().reduce((sum, p) => sum + p.price, 0);
+    // TODO: Calcula y retorna la suma de todos los precios
+    // Pista: Usa reduce() en this.products()
+    return 0;
   });
 
   addProduct() {
@@ -70,24 +72,24 @@ export class Ejercicio1CdModernoComponent {
       name: `Producto ${this.products().length + 1}`,
       price: Math.floor(Math.random() * 500)
     };
-    // ✅ BUENA PRÁCTICA: Inmutabilidad automática con signals
-    this.products.update(prods => [...prods, newProduct]);
+    // TODO: Usa products.update() para agregar el nuevo producto de forma inmutable
+    // Pista: this.products.update(prods => [...prods, newProduct])
     console.log('Moderno: Producto agregado');
   }
 
   // ✅ BUENA PRÁCTICA: Actualización inmutable
   updatePriceImmutable() {
-    this.products.update(prods =>
-      prods.map((p, i) => i === 0 ? { ...p, price: p.price + 10 } : p)
-    );
+    // TODO: Usa products.update() con map() para actualizar el precio del primer producto
+    // Pista: prods.map((p, i) => i === 0 ? { ...p, price: p.price + 10 } : p)
     console.log('Moderno: Precio actualizado (inmutable)');
   }
 
-  // ❌ MALA PRÁCTICA: Mutación - El precio se actualiza pero computed NO se ejecuta
+  // ❌ MALA PRÁCTICA: Mutación - NO funcionará correctamente
   updatePriceMutation() {
     const prods = this.products();
     if (prods.length > 0) {
-      prods[0].price += 10; // Muta el objeto pero no notifica cambios
+      // TODO: Muta el precio directamente (para ver que NO funciona)
+      // Pista: prods[0].price += 10
       console.log('⚠️ Moderno: Precio mutado - Mira: totalPrice() computed NO se ejecutó!');
       console.log('   El precio cambió en pantalla pero el signal no detectó el cambio');
     }

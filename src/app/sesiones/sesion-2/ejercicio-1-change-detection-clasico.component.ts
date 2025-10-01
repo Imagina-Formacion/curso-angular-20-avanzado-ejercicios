@@ -56,19 +56,22 @@ export class Ejercicio1CdClasicoComponent {
   ];
 
   addProduct() {
+    // TODO: Implementa la lógica para agregar un nuevo producto al array
+    // Pista: Usa push() para agregar al array
     const newProduct: Product = {
       id: this.products.length + 1,
       name: `Producto ${this.products.length + 1}`,
       price: Math.floor(Math.random() * 500)
     };
-    this.products.push(newProduct);
+    // TODO: Agrega newProduct al array products
     console.log('Clásico: Producto agregado');
   }
 
   // ❌ MALA PRÁCTICA: Mutación directa del objeto
   updatePriceMutation() {
     if (this.products.length > 0) {
-      this.products[0].price += 10;
+      // TODO: Incrementa el precio del primer producto en 10
+      // Pista: this.products[0].price += 10
       console.log('Clásico: Precio mutado (puede no detectarse con OnPush)');
     }
   }
@@ -76,9 +79,8 @@ export class Ejercicio1CdClasicoComponent {
   // ✅ BUENA PRÁCTICA: Actualización inmutable
   updatePriceImmutable() {
     if (this.products.length > 0) {
-      this.products = this.products.map((p, i) =>
-        i === 0 ? { ...p, price: p.price + 10 } : p
-      );
+      // TODO: Crea un nuevo array con el primer producto actualizado
+      // Pista: Usa map() y spread operator {...p, price: p.price + 10}
       console.log('Clásico: Precio actualizado (inmutable)');
     }
   }
@@ -86,6 +88,8 @@ export class Ejercicio1CdClasicoComponent {
   // ⚠️ Este getter se ejecuta en CADA change detection
   getTotalPrice(): number {
     console.log('🔴 Clásico: getTotalPrice() ejecutado');
-    return this.products.reduce((sum, p) => sum + p.price, 0);
+    // TODO: Calcula y retorna la suma de todos los precios
+    // Pista: Usa reduce() para sumar los precios
+    return 0;
   }
 }
