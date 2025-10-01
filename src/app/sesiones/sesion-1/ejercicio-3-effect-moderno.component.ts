@@ -1,7 +1,22 @@
 // ejercicio-3-effect-moderno.component.ts
 // CONCEPTO NUEVO: Effects - No existe equivalente directo en clásico
+//
+// 🎯 OBJETIVO: Usar effects para ejecutar side effects reactivos
+//
+// 📝 TAREAS:
+// 1. Importar 'signal' y 'effect' desde '@angular/core'
+// 2. Crear signals para busqueda y contadorBusquedas
+// 3. Crear un effect que guarde en localStorage cuando cambie busqueda
+// 4. Crear un effect que incremente el contador cuando se busque
+// 5. Implementar los métodos actualizarBusqueda y limpiar
+//
+// 💡 PISTAS:
+// - effect(() => { ... }) se ejecuta cuando cambian los signals que lee
+// - Los effects se declaran en el constructor
+// - Son ideales para side effects: logging, localStorage, analytics, etc.
+// - NO usar effects para modificar el estado directamente (usar computed en su lugar)
 
-import { Component, signal, effect } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-ejercicio-3-moderno',
@@ -10,12 +25,12 @@ import { Component, signal, effect } from '@angular/core';
     <div>
       <h3>Ejercicio 3: Effects - Versión Moderna (Solo con Signals)</h3>
 
-      <p>Búsqueda: {{ busqueda() }}</p>
-      <p>Contador de búsquedas: {{ contadorBusquedas() }}</p>
+      <!-- TODO: Actualizar para usar signals con () -->
+      <p>Búsqueda: </p>
+      <p>Contador de búsquedas: </p>
 
       <input
         type="text"
-        [value]="busqueda()"
         (input)="actualizarBusqueda($any($event.target).value)"
         placeholder="Escribe algo..."
       />
@@ -28,40 +43,32 @@ import { Component, signal, effect } from '@angular/core';
   `
 })
 export class Ejercicio3ModernoComponent {
-  busqueda = signal('');
-  contadorBusquedas = signal(0);
+  // TODO: Crear signals
+  // busqueda =
+  // contadorBusquedas =
 
   constructor() {
-    // 💡 EFFECT: Se ejecuta automáticamente cuando busqueda() cambia
-    effect(() => {
-      const termino = this.busqueda();
-      console.log('Effect ejecutado: Búsqueda =', termino);
+    // TODO: Crear effect para guardar en localStorage
+    // effect(() => {
+    //   const termino = ...
+    //   console.log('Effect ejecutado: Búsqueda =', termino);
+    //   if (termino) {
+    //     localStorage.setItem('ultimaBusqueda', termino);
+    //   }
+    // });
 
-      // Side effect: guardar en localStorage
-      if (termino) {
-        localStorage.setItem('ultimaBusqueda', termino);
-        console.log('Guardado en localStorage:', termino);
-      }
-    });
-
-    // 💡 EFFECT: Contador de búsquedas
-    effect(() => {
-      const termino = this.busqueda();
-      if (termino.length > 0) {
-        this.contadorBusquedas.update(valor => valor + 1);
-        console.log('Búsquedas realizadas:', this.contadorBusquedas());
-      }
-    });
+    // TODO: Crear effect para contar búsquedas
+    // effect(() => {
+    //   ...
+    // });
   }
 
   actualizarBusqueda(valor: string) {
-    this.busqueda.set(valor);
+    // TODO: Implementar
   }
 
   limpiar() {
-    this.busqueda.set('');
-    this.contadorBusquedas.set(0);
-    localStorage.removeItem('ultimaBusqueda');
+    // TODO: Implementar (limpiar signals y localStorage)
     console.log('Búsqueda limpiada');
   }
 }

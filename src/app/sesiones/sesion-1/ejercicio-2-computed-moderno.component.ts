@@ -1,7 +1,20 @@
 // ejercicio-2-computed-moderno.component.ts
 // VERSIÓN MODERNA: Usando computed signals
+//
+// 🎯 OBJETIVO: Crear valores derivados usando computed signals
+//
+// 📝 TAREAS:
+// 1. Importar 'signal' y 'computed' desde '@angular/core'
+// 2. Crear signals para precioBase y cantidad
+// 3. Crear computed signals para total y totalConIVA
+// 4. Implementar los métodos para modificar los signals
+//
+// 💡 PISTAS:
+// - computed(() => expresión) crea un valor derivado
+// - Los computed se recalculan automáticamente cuando cambian sus dependencias
+// - Los computed son read-only (no se pueden modificar directamente)
 
-import { Component, signal, computed } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-ejercicio-2-moderno',
@@ -10,11 +23,12 @@ import { Component, signal, computed } from '@angular/core';
     <div>
       <h3>Ejercicio 2: Valores Derivados - Versión Moderna (Computed)</h3>
 
-      <p>Precio base: {{ precioBase() }}€</p>
-      <p>Cantidad: {{ cantidad() }}</p>
+      <!-- TODO: Actualizar para usar signals con () -->
+      <p>Precio base: €</p>
+      <p>Cantidad: </p>
 
-      <p><strong>Total: {{ total() }}€</strong></p>
-      <p><strong>Total con IVA (21%): {{ totalConIVA() }}€</strong></p>
+      <p><strong>Total: €</strong></p>
+      <p><strong>Total con IVA (21%): €</strong></p>
 
       <button (click)="aumentarCantidad()">+ Cantidad</button>
       <button (click)="disminuirCantidad()">- Cantidad</button>
@@ -30,36 +44,34 @@ import { Component, signal, computed } from '@angular/core';
   `
 })
 export class Ejercicio2ModernoComponent {
-  // 💡 SIGNALS para estado mutable
-  precioBase = signal(10);
-  cantidad = signal(1);
+  // TODO: Crear signals para estado mutable
+  // precioBase =
+  // cantidad =
 
-  // 💡 COMPUTED: Solo se recalcula cuando precioBase o cantidad cambian
-  total = computed(() => {
-    console.log('Signal: Calculando total (computed ejecutado)');
-    return this.precioBase() * this.cantidad();
-  });
+  // TODO: Crear computed signal para el total
+  // total = computed(() => {
+  //   console.log('Signal: Calculando total (computed ejecutado)');
+  //   return ...
+  // });
 
-  // 💡 COMPUTED: Puede derivar de otros computed
-  totalConIVA = computed(() => {
-    console.log('Signal: Calculando total con IVA (computed ejecutado)');
-    return this.total() * 1.21;
-  });
+  // TODO: Crear computed signal para total con IVA
+  // totalConIVA = computed(() => {
+  //   console.log('Signal: Calculando total con IVA (computed ejecutado)');
+  //   return ...
+  // });
 
   aumentarCantidad() {
-    this.cantidad.update(valor => valor + 1);
-    console.log('Signal: Cantidad =', this.cantidad());
+    // TODO: Implementar
+    console.log('Signal: Cantidad =');
   }
 
   disminuirCantidad() {
-    if (this.cantidad() > 0) {
-      this.cantidad.update(valor => valor - 1);
-      console.log('Signal: Cantidad =', this.cantidad());
-    }
+    // TODO: Implementar (validar que cantidad > 0)
+    console.log('Signal: Cantidad =');
   }
 
   cambiarPrecio(precio: number) {
-    this.precioBase.set(precio);
-    console.log('Signal: Precio base =', this.precioBase());
+    // TODO: Implementar
+    console.log('Signal: Precio base =');
   }
 }
