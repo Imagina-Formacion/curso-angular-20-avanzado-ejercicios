@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 /**
  * EJERCICIO 4 - VERSIÓN CLÁSICA: FormArray Dinámico
@@ -15,7 +16,8 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-ejercicio4-formarray-clasico',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   template: `
     <div class="ejercicio-card">
       <h2>📝 Ejercicio 4: FormArray - Versión Clásica</h2>

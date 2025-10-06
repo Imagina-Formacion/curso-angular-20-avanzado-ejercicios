@@ -66,7 +66,6 @@ import { Ejercicio5ProvidersModerno } from './sesiones/sesion-3/ejercicio-5-prov
     Ejercicio1FormsClasico,
     Ejercicio2ValidacionesClasico,
     Ejercicio3DIClasico,
-    Ejercicio4FormArrayClasico,
     Ejercicio5ProvidersClasico
   ],
   imports: [
@@ -90,6 +89,7 @@ import { Ejercicio5ProvidersModerno } from './sesiones/sesion-3/ejercicio-5-prov
     Ejercicio1FormsModerno,
     Ejercicio2ValidacionesModerno,
     Ejercicio3DIModerno,
+    Ejercicio4FormArrayClasico, // Ahora standalone
     Ejercicio4FormArrayModerno,
     Ejercicio5ProvidersModerno
   ],
